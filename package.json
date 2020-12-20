@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "lodash.clonedeep": "^4.5.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
@@ -23,7 +24,7 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "_lint": "./node_modules/.bin/eslint src/*.js --fix",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
