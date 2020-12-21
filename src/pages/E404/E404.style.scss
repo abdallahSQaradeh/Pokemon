@@ -1,0 +1,78 @@
+@import "../../sass/colors.scss";
+
+.e404-page {
+    display: flex;
+    flex-flow: nowrap column;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, $red_err, $red_err);
+    align-items: center;
+
+    .e404 {
+        font-size: 640px;
+        text-align: center;
+        position: relative;
+
+        .text-404 {
+            font-family: 'Karla';
+            font-weight: bold;
+            padding-top: 50px;
+            font-size: 580px;
+            line-height: 480px;
+            color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            letter-spacing: 4px;
+        }
+
+        .team-rocket {
+            height: 90%;
+            width: 50%;
+            position: absolute;
+            top: 10%;
+            margin-left: -270px;
+        }
+    }
+
+    .page-404-text {
+        font-family: 'Karla';
+
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 56px;
+        margin-top: 17px;
+
+        .first-text-error {
+            color: white;
+        }
+
+        .second-text-error {
+            color: black
+        }
+    }
+
+    .e404-button {
+        margin-top: 50px;
+        width: 245px;
+        border: none;
+        background-color: $button_yellow;
+        border-bottom: 12px inset $dark_yellow;
+        padding: 10px;
+        border-radius: 15px;
+        font-size: 22px;
+        font-weight: 700;
+
+
+        &:hover {
+            cursor: pointer;
+            border-bottom-color: $sharp_yellow;
+            background-color: $dark_yellow;
+            color: white;
+
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

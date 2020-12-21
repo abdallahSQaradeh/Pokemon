@@ -3,6 +3,7 @@ import "./App.css";
 import NavBar from "./components/header/header.component";
 import Footer from "./components/footer/footer.component";
 import Content from "./pages/home/home.page";
+// import ErrorPage from "./pages/E404/e404.components";
 
 function App() {
   // const example = cloneDeep({ ex: "ex" });
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Content />
+      {/* <ErrorPage /> */}
       <Footer />
     </div>
   );
