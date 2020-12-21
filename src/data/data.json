@@ -9,10 +9,10 @@
     "bannerText": "You can know the type of Pokemon, its strengths, disadvantages and abilities",
     "bannerButton": "See pokemons"
   },
-  "e404":{
-    "firstText":"The rocket team",
-    "secondText":" has won this time.",
-    "returnE":"Return",
-    "E404T":"404"
+  "e404": {
+    "firstText": "The rocket team",
+    "secondText": " has won this time.",
+    "returnE": "Return",
+    "E404T": "404"
   }
 }
