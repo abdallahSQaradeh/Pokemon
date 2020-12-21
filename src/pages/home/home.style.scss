@@ -2,43 +2,55 @@
 @import"../../sass/mixins.scss";
 
 .home-content {
-    @include flex-row;
+
     flex: 1 0 auto;
     width: 100%;
     min-height: 100%;
     background-image: linear-gradient($sharp_yellow, $dark_yellow);
-    justify-content: space-between;
-    padding-bottom: 180px;
+
+
 
     .banner {
-        flex: 0 1 35%;
+        @include flex-row;
+        justify-content: space-between;
+    }
+
+    .banner-info {
+        flex: 0 1 28%;
         margin-left: 10%;
         margin-top: 62px;
 
         .banner-header {
-            font-size: 4.2em;
+            font-size: 4em;
+            line-height: 0;
+            letter-spacing: 3.5px;
 
             .b-bold {
                 font-weight: 700;
+            }
+
+            span {
+                line-height: 70px;
             }
 
 
         }
 
         .banner-text {
-            font-size: 32px;
+            font-size: 26px;
             margin-top: 30px;
+            line-height: 30px;
         }
 
         .banner-button {
             margin-top: 30px;
-            width: 245px;
+            width: 220px;
             border: none;
-            background-color: $light_green;
-            border-bottom: 12px inset$dark_green;
+            background-color: #73D677;
+            border-bottom: 12px inset #5EAF62;
             padding: 10px;
-            border-radius: 15px;
-            font-size: 22px;
+            border-radius: 10px;
+            font-size: 20px;
             font-weight: 700;
 
             &:hover {
@@ -56,10 +68,11 @@
     }
 
     .banner-image {
-        flex: 0 1 50%;
+        flex: 0 1 46%;
 
         img {
             width: 100%;
+            height: 80%;
         }
     }
 }
