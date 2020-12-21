@@ -1,0 +1,12 @@
+{
+  "home": {
+    "bannerHeader": {
+      "bold1": "Find ",
+      "normal": "all your favorite ",
+      "bold2": "Pokemon"
+    },
+
+    "bannerText": "You can know the type of Pokemon, its strengths, disadvantages and abilities",
+    "bannerButton": "See pokemons"
+  }
+}
