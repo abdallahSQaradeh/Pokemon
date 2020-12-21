@@ -1,0 +1,65 @@
+@import "../../sass/colors.scss";
+@import"../../sass/mixins.scss";
+
+.home-content {
+    @include flex-row;
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: 100%;
+    background-image: linear-gradient($sharp_yellow, $dark_yellow);
+    justify-content: space-between;
+    padding-bottom: 180px;
+
+    .banner {
+        flex: 0 1 35%;
+        margin-left: 10%;
+        margin-top: 62px;
+
+        .banner-header {
+            font-size: 4.2em;
+
+            .b-bold {
+                font-weight: 700;
+            }
+
+
+        }
+
+        .banner-text {
+            font-size: 32px;
+            margin-top: 30px;
+        }
+
+        .banner-button {
+            margin-top: 30px;
+            width: 245px;
+            border: none;
+            background-color: $light_green;
+            border-bottom: 12px inset$dark_green;
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: 700;
+
+            &:hover {
+                border-bottom-color: $light_green;
+                background-color: $dark_green;
+                color: $sharp_yellow;
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: none;
+                ;
+            }
+        }
+    }
+
+    .banner-image {
+        flex: 0 1 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+}

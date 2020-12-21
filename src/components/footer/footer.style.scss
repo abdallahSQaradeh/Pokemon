@@ -1,0 +1,27 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+
+.footer {
+    @include flex-row;
+    padding: 22px 10%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: 'Karla';
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 0;
+
+    div {
+        @include flex-row;
+        align-items: center;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+
+}
+
+.red {
+    color: $red;
+}

@@ -1,0 +1,11 @@
+.nav-item{
+    flex: 0 1 auto;
+    padding: 5px 0px;
+}
+.nav-item:last-of-type{
+    margin-right: 0;;
+}
+.nav-item:hover{
+    border-bottom: 2px solid black;;
+    cursor: pointer;
+}
