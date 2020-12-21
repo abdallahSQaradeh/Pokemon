@@ -1,0 +1,22 @@
+@import "../../sass//colors.scss";
+@import "../../sass/mixins.scss";
+
+
+.navbar {
+    background-color: $sharp_yellow;
+    padding: 15px 10%;
+    width: 100%;
+    @include flex-row();
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-items {
+        font-family: 'Karla';
+        font-size: 20px;
+        list-style-type: none;
+        @include flex-row();
+        width: 57%;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
