@@ -1,0 +1,27 @@
+@import "../../sass/colors.scss";
+
+.drop-down {
+
+
+    width: 130px;
+
+    margin-left: 30px;
+
+    .drop-down-button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border: none;
+        padding: 4px 2px;
+        background-color: $light_gray;
+        border-radius: 3px;
+
+
+        .drop-down-icon {
+            position: absolute;
+            right: 3px;
+            top: 7px;
+        }
+    }
+}

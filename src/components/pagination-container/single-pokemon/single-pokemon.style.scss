@@ -1,0 +1,101 @@
+@import "../../../sass/colors.scss";
+@import "../../../sass/mixins.scss";
+
+.single-pokemon {
+
+
+    box-shadow: 3px 3px 6px -3px grey;
+
+    flex: 0 1 30%;
+    min-width: 300px;
+    @include flex-row;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: all ease-in-out .3s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        z-index: 20;
+    }
+
+    .pokemon-info {
+        flex: 0 1 35%;
+        padding: 10px 0px 10px 20px;
+        background-color: #F6F7F9;
+
+
+
+        .pokemon-name {
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pokemon-qualification {
+            margin-top: 10px;
+            @include flex-row;
+            justify-content: space-between;
+        }
+
+        .qualification-text {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 5px;
+            ;
+        }
+
+        .circle {
+            width: fit-content;
+            height: 27px;
+            padding: 2px;
+            border-radius: 50%;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+
+
+        }
+
+        .pokemon-badges {
+            font-size: 11px;
+            @include flex-row;
+            justify-content: space-between;
+            width: 135%;
+            margin-top: 5px;
+
+            .badge {
+                padding: 0px 10px;
+                border-radius: 9px;
+                z-index: 15;
+            }
+
+            .blue {
+                background-color: $light_blue;
+            }
+
+            .green {
+                background-color: $light_green;
+            }
+        }
+
+    }
+
+    .pokemon-image-container {
+        width: 65%;
+        height: 100%;
+    }
+
+    .spokemon-image {
+
+        width: 100%;
+        height: 100%;
+        background-origin: border-box;
+        background-position: center;
+        background-clip: border-box;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+}

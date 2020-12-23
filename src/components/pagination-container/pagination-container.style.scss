@@ -1,0 +1,22 @@
+@import "../../sass/mixins.scss";
+@import "../../sass//colors.scss";
+
+.pagination-container {
+
+    width: 75%;
+    margin-top: 30px;
+    min-height: 55%;
+    max-height: 55%;
+
+
+    .pokemons {
+        width: 100%;
+        @include flex-row;
+        justify-content: space-between;
+        align-content: space-between;
+
+
+
+
+    }
+}
