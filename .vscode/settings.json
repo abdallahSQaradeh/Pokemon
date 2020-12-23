@@ -3,7 +3,5 @@
   "editor.formatOnSave": true,
   "eslint.alwaysShowStatus": true,
   "files.autoSave": "onFocusChange",
-  "cSpell.words": [
-    "Pokedex"
-  ]
+  "cSpell.words": ["Pokedex"]
 }
