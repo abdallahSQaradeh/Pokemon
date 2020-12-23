@@ -2,17 +2,55 @@
   "home": {
     "bannerHeader": {
       "bold1": "Find ",
-      "normal": "all your favorite ",
-      "bold2": "Pokemon"
-    },
+        "normal": "all your favorite ",
+        "bold2": "Pokemon"
+    }
+
+    ,
 
     "bannerText": "You can know the type of Pokemon, its strengths, disadvantages and abilities",
     "bannerButton": "See pokemons"
-  },
+  }
+
+  ,
   "e404": {
     "firstText": "The rocket team",
-    "secondText": " has won this time.",
-    "returnE": "Return",
-    "E404T": "404"
+      "secondText": " has won this time.",
+      "returnE": "Return",
+      "E404T": "404"
+  }
+
+  ,
+  "pokedex": {
+    "title": {
+      "titlePre": " 800 ",
+        "titleSuf":" Pokemons ",
+        "titlePost":" for you to choose your favorite"
+    }
+
+    ,
+    "placeholder":"Encuentra tu pokémon...",
+    "types": {
+      "Normal": "tan",
+        "Fire":"darkred",
+        "Poison":"yellowgreen",
+        "Steel":"silver",
+        "Fighting":"gold",
+        "Dragon":"orange",
+        "Dark":"darkblue",
+        "Water":"navy",
+        "Ice":"lightblue",
+        "Grass":"green",
+        "Ground":"brown",
+        "Flying":"purple",
+        "Rock":"darkgrey",
+        "Bug":"darkgreen",
+        "Ghost":"maroon",
+        "Electric":"yellow",
+        "Psychic":"pink",
+        "Fairy":"deepskyblue"
+    }
+
+
   }
 }
