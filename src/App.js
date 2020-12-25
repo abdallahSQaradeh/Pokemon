@@ -5,10 +5,12 @@ import Footer from "./components/footer/footer.component";
 // import Content from "./pages/home/home.page";
 // import ErrorPage from "./pages/E404/e404.components";
 import Pokedex from "./pages/pkedex/pokedex.component";
+// import useFetchPokemon from "./hooks/useFetchPokemon";
 
 function App() {
   // const example = cloneDeep({ ex: "ex" });
   // console.log(example);
+  // useFetchPokemon();
   return (
     <div className="App">
       <NavBar />

@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useReducer, useEffect } from "react";
+import axios from "axios";
 
 const initialState = {
   data: [],
@@ -19,11 +19,11 @@ function reducer(state, action) {
       throw new Error("Something wrong");
   }
 }
-const useFetchPokemon = () => {
+function useFetchPokemon() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  dispatch({ type: "pending" });
-  console.log("panding");
+
   useEffect(() => {
+    dispatch({ type: "pending" });
     axios
       .get(" https://app.pokemon-api.xyz/pokemon/all")
       .then((res) => {
@@ -39,5 +39,5 @@ const useFetchPokemon = () => {
     };
   }, []);
   return state;
-};
+}
 export default useFetchPokemon;

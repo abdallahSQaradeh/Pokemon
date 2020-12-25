@@ -4,7 +4,7 @@ import data from "../../data/data.json";
 import "./search.style.scss";
 
 export default function Search(props) {
-  const { value, setValue } = props;
+  const { value, onChangeHandler } = props;
   const { placeholder } = data.pokedex;
   return (
     <input
@@ -12,16 +12,16 @@ export default function Search(props) {
       type="search"
       placeholder={placeholder}
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={onChangeHandler}
     />
   );
 }
 Search.propTypes = {
   value: PropTypes.string,
-  setValue: PropTypes.func,
+  onChangeHandler: PropTypes.func,
 };
 
 Search.defaultProps = {
   value: "",
-  setValue: () => {},
+  onChangeHandler: () => {},
 };
