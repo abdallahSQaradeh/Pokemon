@@ -2,11 +2,13 @@ import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import "./pokedex.style.scss";
 // import elasticlunr from "elasticlunr";
+
 import pageData from "../../data/data.json";
 import Search from "../../components/search/search.component";
 import DropDownFilter from "../../components/drop-down-filter/drop-down-filter.component";
 import Pokemons from "../../components/pagination-container/pagination-container.component";
 // import useFetchPokemon from "../../hooks/useFetchPokemon";
+import Modal from "../../components/Modal/Modal.component";
 
 const initialState = {
   data: [],
@@ -104,10 +106,12 @@ function reducer(state, action) {
 
 export default function Pokedex() {
   const { title } = pageData.pokedex;
+  const [selectedPoke, setSelectedPoke] = useState(null);
   const [search, setSearch] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { loading, error, pokemonPage } = state;
-
+  let Ability = "";
+  let gen = 0;
   const onChangeHandler = (e) => {
     const { value } = e.target;
     setSearch(value);
@@ -134,9 +138,47 @@ export default function Pokedex() {
   }, []);
 
   // const state = useFetchPokemon();
+  if (selectedPoke) {
+    if (selectedPoke.profile.ability.length > 0)
+      for (let i = 0; i < selectedPoke.profile.ability.length; i += 1) {
+        Ability += `${selectedPoke.profile.ability[i][0]}${
+          i === selectedPoke.profile.ability.length - 1 ? "" : "-"
+        }`;
+      }
+    else Ability = "Weak";
+    if (selectedPoke.evolution.next) {
+      // eslint-disable-next-line prefer-destructuring
+      gen = selectedPoke.evolution.next[0][1];
+    } else if (selectedPoke.evolution.prev) {
+      // eslint-disable-next-line prefer-destructuring
+      gen = selectedPoke.evolution.prev[0][1];
+    } else {
+      gen = "Old";
+    }
+  }
 
   return (
     <div className="pokedex-content">
+      {selectedPoke !== null ? (
+        <Modal
+          id={selectedPoke.id}
+          generation={gen}
+          AbilityText={Ability}
+          Experience={selectedPoke.base.Speed}
+          HP={selectedPoke.base.HP}
+          srcModal={selectedPoke.hires}
+          name={selectedPoke.name.english}
+          src={selectedPoke.thumbnail}
+          attack={selectedPoke.base.Attack}
+          defense={selectedPoke.base.Defense}
+          color={pageData.pokedex.types[selectedPoke.type[0]]}
+          spAttack={selectedPoke.base["Sp. Attack"]}
+          spDefense={selectedPoke.base["Sp. Defense"]}
+          setModal={() => {
+            setSelectedPoke(null);
+          }}
+        />
+      ) : null}
       <h2 className="title">
         {title.titlePre}
         <span>{title.titleSuf}</span>
@@ -152,7 +194,12 @@ export default function Pokedex() {
         <DropDownFilter text="Ataque" />
         <DropDownFilter text="Experiencia" />
       </div>
-      <Pokemons loading={loading} error={error} data={pokemonPage} />
+      <Pokemons
+        loading={loading}
+        error={error}
+        data={pokemonPage}
+        setSelectedPoke={setSelectedPoke}
+      />
     </div>
   );
 }
