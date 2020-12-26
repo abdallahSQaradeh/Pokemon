@@ -1,0 +1,28 @@
+.ability {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.qualification-text {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 5px;
+    ;
+}
+
+.circle {
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+
+
+}
