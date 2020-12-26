@@ -8,7 +8,7 @@ import Loader from "../UI/loader/loader.component";
 
 export default function PaginationContainer(props) {
   // const state = useFetchPokemon();
-  const { error, loading, data } = props;
+  const { error, loading, data, setSelectedPoke } = props;
   return (
     <div className="pagination-container">
       <div className="pokemons">
@@ -42,6 +42,7 @@ export default function PaginationContainer(props) {
 
             return (
               <SinglPokemon
+                setSelectedPoke={() => setSelectedPoke(pokemon)}
                 generation={gen}
                 Ability={Ability}
                 Experience={pokemon.base.Speed}
@@ -70,6 +71,7 @@ PaginationContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array,
+  setSelectedPoke: PropTypes.func.isRequired,
 };
 
 PaginationContainer.defaultProps = {
