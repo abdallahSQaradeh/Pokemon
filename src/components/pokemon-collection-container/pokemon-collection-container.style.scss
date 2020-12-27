@@ -1,0 +1,39 @@
+@import "../../sass/mixins.scss";
+
+.pokemon-collection-container {
+    width: 80%;
+    margin: auto;
+    color: white;
+
+    .collection-title {
+
+        font-weight: 200;
+        font-size: 72px;
+        letter-spacing: 4px;
+        border-bottom: 1px solid gray;
+        padding-bottom: 15px;
+
+    }
+
+    .pokemon-information {
+        margin-top: 20px;
+        @include flex-row;
+        justify-content: space-between;
+
+        .information-detailed {
+            flex: 0 1 35%;
+            padding-right: 25px;
+
+            .pokemon-name-legendaries {
+                font-size: 72px;
+                letter-spacing: 4px;
+                color: #FDFDFD;
+            }
+
+            .pokemon-specialists {
+                @include flex-row;
+                justify-content: space-between;
+            }
+        }
+    }
+}
