@@ -1,0 +1,18 @@
+.pokemon-experiences {
+    width: 47%;
+
+    .experience-bar {
+        width: 100%;
+        height: 7px;
+        background-color: #EEE;
+        border-radius: 17px;
+
+        .experience-fill-bar {
+            width: 70%;
+            height: 100%;
+            border-radius: 7px;
+            background-color: lightgreen;
+        }
+    }
+
+}

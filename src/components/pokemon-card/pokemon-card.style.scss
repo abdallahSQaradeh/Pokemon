@@ -1,0 +1,99 @@
+@import "../../sass/mixins.scss";
+
+.pokemon-card {
+    width: 140px;
+    position: relative;
+    padding-bottom: 35px;
+
+
+    .card-image {
+        background-image: linear-gradient(to right, #DDB74F, #FCE78B);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+        img {
+            width: 110%;
+            height: 100%;
+
+        }
+    }
+
+    .card-footer {
+        background-color: #f7f7f7;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+        padding: 20px 5px 10px 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+
+        h5 {
+            font-size: 18px;
+            color: black;
+        }
+
+        .ball {
+            width: 20px;
+            height: 20px;
+            ;
+        }
+    }
+
+}
+
+.carousel-container {
+    padding-bottom: 50px;
+    ;
+}
+
+.alice-carousel {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.alice-carousel__prev-btn {
+    position: absolute;
+    top: 60px;
+    left: -90px;
+    width: fit-content;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+    font-size: 50px;
+    color: white;
+    font-size: 72px;
+    font-weight: 700;
+
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+    &:hover {
+        opacity: .7;
+        color: #f7f7f7;
+
+
+        transition: all ease-in-out 0.1;
+        transform: scale(1.05);
+    }
+}
+
+.alice-carousel__next-btn {
+    font-size: 50px;
+    position: absolute;
+    right: -30px;
+    top: 60px;
+    width: fit-content;
+    ;
+}
+
+
+.alice-carousel__prev-btn-item.__inactive,
+.alice-carousel__next-btn-item.__inactive {
+    opacity: 1;
+}
