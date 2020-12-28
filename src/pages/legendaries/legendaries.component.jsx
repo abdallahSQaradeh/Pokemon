@@ -11,10 +11,10 @@ function extract(bottomEdge, data, topEdge = null) {
       .filter((pokemon) => {
         const { base } = pokemon;
         return (
-          base.HP >= bottomEdge ||
-          base.Attack >= bottomEdge ||
-          base.Defense >= bottomEdge ||
-          base["Sp. Attack"] >= bottomEdge ||
+          base.HP >= bottomEdge &&
+          base.Attack >= bottomEdge &&
+          base.Defense >= bottomEdge &&
+          base["Sp. Attack"] >= bottomEdge &&
           base["Sp. Defense"] >= bottomEdge
         );
       })
@@ -49,11 +49,11 @@ export default function Legendaries() {
         <>
           <PokemonCollectionContainer
             title="Legendaries"
-            getData={() => extract(100, data)}
+            getData={() => extract(78, data)}
           />
           <PokemonCollectionContainer
             title="Stronger"
-            getData={() => extract(50, data, 99)}
+            getData={() => extract(50, data, 75)}
           />
           <PokemonCollectionContainer
             title="Weaker"
