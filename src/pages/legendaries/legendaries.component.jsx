@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./legendaries.style.scss";
+import PropTypes from "proptypes";
 import PokemonCollectionContainer from "../../components/pokemon-collection-container/pokemon-collection-container.component";
 import useFetchPokemon from "../../hooks/useFetchPokemon";
 import Loader from "../../components/UI/loader/loader.component";
@@ -37,15 +38,20 @@ function extract(bottomEdge, data, topEdge = null) {
   }
   return collection;
 }
-export default function Legendaries() {
+export default function Legendaries(props) {
   const state = useFetchPokemon();
   const { data, error, loading } = state;
+  const { setColor, setPage } = props;
+  useEffect(() => {
+    setColor("white");
+    setPage("legendaries");
+  }, [setColor, setPage]);
 
   return (
     <div className="legendaries-page">
       {error && <div>Error</div>}
-      {loading && <Loader />}
-      {data ? (
+      {loading && <Loader color="white" />}
+      {data && (
         <>
           <PokemonCollectionContainer
             title="Legendaries"
@@ -60,7 +66,11 @@ export default function Legendaries() {
             getData={() => extract(20, data, 49)}
           />
         </>
-      ) : null}
+      )}
     </div>
   );
 }
+Legendaries.propTypes = {
+  setPage: PropTypes.func.isRequired,
+  setColor: PropTypes.func.isRequired,
+};
