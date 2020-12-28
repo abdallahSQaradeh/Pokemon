@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import "./pokedex.style.scss";
 // import elasticlunr from "elasticlunr";
-
+import PropTypes from "proptypes";
 import pageData from "../../data/data.json";
 import Search from "../../components/search/search.component";
 import DropDownFilter from "../../components/drop-down-filter/drop-down-filter.component";
@@ -104,12 +104,14 @@ function reducer(state, action) {
   }
 }
 
-export default function Pokedex() {
+export default function Pokedex(props) {
   const { title } = pageData.pokedex;
   const [selectedPoke, setSelectedPoke] = useState(null);
   const [search, setSearch] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { loading, error, pokemonPage } = state;
+  const { setPage, setColor } = props;
+
   let Ability = "";
   let gen = 0;
   const onChangeHandler = (e) => {
@@ -135,7 +137,9 @@ export default function Pokedex() {
       .catch((err) => {
         dispatch({ type: "fail", error: err });
       });
-  }, []);
+    setPage("home");
+    setColor("black");
+  }, [setColor, setPage]);
 
   // const state = useFetchPokemon();
   if (selectedPoke) {
@@ -203,3 +207,7 @@ export default function Pokedex() {
     </div>
   );
 }
+Pokedex.propTypes = {
+  setColor: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
+};

@@ -10,7 +10,7 @@
         padding-right: 25px;
 
         .pokemon-name-legendaries {
-            font-size: 72px;
+            font-size: 60px;
             letter-spacing: 4px;
             color: #FDFDFD;
         }
@@ -19,5 +19,7 @@
             @include flex-row;
             justify-content: space-between;
         }
+
+
     }
 }

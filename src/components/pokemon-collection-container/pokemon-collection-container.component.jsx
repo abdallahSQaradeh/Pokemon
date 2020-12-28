@@ -12,9 +12,12 @@ export default function PokemonCollectionContainer(props) {
   const { title, getData } = props;
 
   const responsive = {
-    0: { items: 3 },
-    568: { items: 5 },
-    1024: { items: 6 },
+    0: { items: 2 },
+    500: { items: 2 },
+    600: { items: 3 },
+    1024: { items: 5 },
+    1200: { items: 5 },
+    1300: { items: 6 },
   };
   const [data, setData] = useState(null);
   const [pokemon, setPokemon] = useState(null);
@@ -39,8 +42,15 @@ export default function PokemonCollectionContainer(props) {
           <AliceCarousel
             activeIndex={index}
             infinite
-            items={data.map((poke) => {
-              return <PokemonCard pokemon={poke} key={`${poke.id}3x`} />;
+            items={data.map((poke, item) => {
+              return (
+                <PokemonCard
+                  pokemon={poke}
+                  key={`${poke.id}3x`}
+                  activeItem={index}
+                  item={item}
+                />
+              );
             })}
             responsive={responsive}
             disableDotsControls

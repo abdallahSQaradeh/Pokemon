@@ -11,11 +11,12 @@
 
         .experience-fill-bar {
 
-            transition: all ease-in-out .5s;
-            width: 70%;
+            transition: all ease-in-out 1s;
+            width: 10%;
             height: 100%;
             border-radius: 7px;
             background-color: lightgreen;
+            box-shadow: 1px 0px 5px 1px #7b7b7b8a;
         }
     }
 

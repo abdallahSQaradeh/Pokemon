@@ -1,21 +1,35 @@
 @import "../../sass/mixins.scss";
 
 .pokemon-card {
+    overflow: visible;
     width: 140px;
     position: relative;
     padding-bottom: 35px;
-
+    background-image: linear-gradient(to right, #DDB74F, #FCE78B);
+    border-radius: 20px;
 
     .card-image {
-        background-image: linear-gradient(to right, #DDB74F, #FCE78B);
+
+        z-index: 10;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
+        position: relative;
 
         img {
             width: 110%;
             height: 100%;
 
         }
+    }
+
+    .not-active {
+        background-color: #21212194;
+        position: absolute;
+        width: 115%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 20;
     }
 
     .card-footer {

@@ -23,7 +23,7 @@
         flex: 0 1 35%;
         padding: 10px 0px 10px 20px;
         background-color: #F6F7F9;
-
+        border-radius: 10px;
 
 
         .pokemon-name {
@@ -85,6 +85,8 @@
     .pokemon-image-container {
         width: 65%;
         height: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .spokemon-image {
