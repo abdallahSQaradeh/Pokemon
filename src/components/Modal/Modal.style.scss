@@ -37,6 +37,10 @@
         right: -20px;
         top: -20px;
         font-size: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .pokemon-image-detail {

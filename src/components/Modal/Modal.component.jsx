@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import "./Modal.style.scss";
 import PropTypes from "proptypes";
 import { AiOutlineClose } from "react-icons/ai";
@@ -53,7 +54,8 @@ export default function Modal(props) {
           }}
         >
           <img alt="img" className="modal-image" src={srcModal} />
-          <div className="badge">badge 1</div>
+
+          {/* <div className="badge">{types[0][0]}</div> */}
         </div>
         <div
           className="pokemon-modal-detail"

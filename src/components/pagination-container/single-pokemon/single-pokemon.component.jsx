@@ -3,16 +3,7 @@ import "./single-pokemon.style.scss";
 import PropTypes from "proptypes";
 
 export default function SinglePokemon(props) {
-  const {
-    setSelectedPoke,
-
-    name,
-    src,
-
-    attack,
-    defense,
-    color,
-  } = props;
+  const { setSelectedPoke, name, src, attack, defense, color } = props;
 
   return (
     <div
@@ -59,9 +50,7 @@ export default function SinglePokemon(props) {
 }
 SinglePokemon.propTypes = {
   setSelectedPoke: PropTypes.func.isRequired,
-
   name: PropTypes.string.isRequired,
-
   src: PropTypes.string.isRequired,
   attack: PropTypes.string.isRequired,
   defense: PropTypes.string.isRequired,

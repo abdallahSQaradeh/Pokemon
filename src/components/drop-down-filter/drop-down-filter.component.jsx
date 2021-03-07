@@ -14,20 +14,21 @@ export default function DropDownFilter(props) {
         </div>
       </button>
       <ul className="filter-checks">
-        {Object.keys(filters).map((li) => {
-          return (
-            <div key={li} className="check-item">
-              <input
-                type="checkbox"
-                name={li}
-                value={li}
-                id={li}
-                onChange={(e) => onChecked(e, li)}
-              />
-              <label htmlFor={li}>{li}</label>
-            </div>
-          );
-        })}
+        {filters &&
+          Object.keys(filters).map((li) => {
+            return (
+              <div key={li} className="check-item">
+                <input
+                  type="radio"
+                  name={text}
+                  value={li}
+                  id={li}
+                  onChange={(e) => onChecked(e, li)}
+                />
+                <label htmlFor={li}>{li}</label>
+              </div>
+            );
+          })}
       </ul>
     </div>
   );

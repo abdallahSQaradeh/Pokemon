@@ -3,27 +3,36 @@ import axios from "axios";
 import "./pokedex.style.scss";
 // import elasticlunr from "elasticlunr";
 import PropTypes from "proptypes";
+import Slider from "react-slick";
 import pageData from "../../data/data.json";
 import Search from "../../components/search/search.component";
 import DropDownFilter from "../../components/drop-down-filter/drop-down-filter.component";
 import Pokemons from "../../components/pagination-container/pagination-container.component";
 // import useFetchPokemon from "../../hooks/useFetchPokemon";
 import Modal from "../../components/Modal/Modal.component";
+import Loader from "../../components/UI/loader/loader.component";
+import Cry from "../../assets/cry2.gif";
 
 const initialState = {
   data: [],
   loading: false,
   error: "",
-  pokemonPage: [],
-  page: 1,
   pages: [],
   filters: {},
   filteredData: [],
+  types: null,
 };
+
 function pagination(data) {
   const Pages = [];
-  for (let i = 1; i <= 3; i += 1) {
-    const pageCollection = data.slice((i - 1) * 9, i * 9);
+  const length = Math.ceil(data.length / 9);
+  for (let i = 1; i <= Math.min(3, length); i += 1) {
+    let pageCollection = "";
+    if (data.length < 9) {
+      pageCollection = data.slice((i - 1) * 9, i * data.length);
+    } else {
+      pageCollection = data.slice((i - 1) * 9, i * 9);
+    }
     Pages.push(pageCollection);
   }
   return Pages;
@@ -37,7 +46,6 @@ function reducer(state, action) {
         data: action.data,
         loading: false,
         error: false,
-        pokemonPage: Pages[0],
         types: pageData.pokedex.types,
         pages: Pages,
       };
@@ -51,49 +59,35 @@ function reducer(state, action) {
     case "search": {
       const pPage = state.data
         .filter((pokemon) => {
-          return pokemon.name.english.toLowerCase().includes(action.value);
+          const res = pokemon.name.english
+            .toLowerCase()
+            .includes(action.value.toLowerCase());
+          return res;
         })
         .map((pokemon) => {
           return pokemon;
         });
       const Pages = pagination(pPage);
-      return { ...state, pokemonPage: Pages[0] };
+      return { ...state, pages: Pages };
     }
     case "filter": {
-      const { item } = action.filters;
-      const currentFilter = { ...state.filters };
-      let deleted = false;
-      if (!currentFilter[item]) currentFilter[item] = { checked: true };
-      else {
-        delete currentFilter[item];
-        deleted = true;
-      }
-      const keys = Object.keys(currentFilter);
-      let pokes = [];
-      let data = [];
-      if (state.filteredData.length === 0 || deleted) {
-        data = [...state.data];
-      } else {
-        data = [...state.filteredData];
-      }
-      if (deleted && keys.length === 0) {
-        pokes = data;
-      } else {
-        data.forEach((poke) => {
-          keys.forEach((filter) => {
-            if (currentFilter[filter].checked) {
-              if (filter === poke.type[0] || filter === poke.type[1])
-                pokes.push(poke);
-            }
-          });
-        });
-      }
+      console.log(action);
+      const currentFilter = action.filters;
+      const pokes = [];
+      const data = [...state.data];
+      data.forEach((poke) => {
+        if (
+          action.filters.item === poke.type[0] ||
+          action.filters.item === poke.type[1]
+        )
+          pokes.push(poke);
+      });
 
       const Pages = pagination(pokes);
 
       return {
         ...state,
-        pokemonPage: Pages[0],
+        pages: Pages,
         filters: currentFilter,
         filteredData: pokes,
       };
@@ -109,7 +103,7 @@ export default function Pokedex(props) {
   const [selectedPoke, setSelectedPoke] = useState(null);
   const [search, setSearch] = useState(null);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { loading, error, pokemonPage } = state;
+  const { loading, error, pages } = state;
   const { setPage, setColor } = props;
 
   let Ability = "";
@@ -198,12 +192,29 @@ export default function Pokedex(props) {
         <DropDownFilter text="Ataque" />
         <DropDownFilter text="Experiencia" />
       </div>
-      <Pokemons
-        loading={loading}
-        error={error}
-        data={pokemonPage}
-        setSelectedPoke={setSelectedPoke}
-      />
+      <div className="pagination-container">
+        {loading && <Loader />}
+        {pages.length > 0 && (
+          <Slider dots slidesToShow={1} slidesToScroll={1} infinite={false}>
+            {pages.map((page, i) => {
+              return (
+                <Pokemons
+                  error={error}
+                  data={page}
+                  key={`page-${`${i}p`}-p`}
+                  setSelectedPoke={setSelectedPoke}
+                />
+              );
+            })}
+          </Slider>
+        )}
+        {pages.length === 0 && !loading && (
+          <div style={{ textAlign: "center" }}>
+            <img src={Cry} alt="cry" />
+            <h4>we cannot find my siblings</h4>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
